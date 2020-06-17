@@ -8,7 +8,6 @@ Item
     property int radius: 100
     property int hour: currentHour
     property int currentHour: 12
-    property alias labelSize: _circularHour.labelSize
 
     signal accepted(int hour)
 

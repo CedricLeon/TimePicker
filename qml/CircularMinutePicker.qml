@@ -8,7 +8,6 @@ Item
     property int radius: 100
     property int minute: currentMinute
     property int currentMinute: 0
-    property alias labelSize: _circularMinute.labelSize
 
     signal accepted(int minute)
 

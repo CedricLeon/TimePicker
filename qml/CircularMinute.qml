@@ -19,6 +19,6 @@ Item
         anchors.centerIn: parent
         radius: parent.radius
         model: ["00", "05", "10", "15", "20", "25", "30", "35", "40","45", "50", "55"]
-        currentIndex: root.minute%5 === 0 ? Math.round(root.minute/5) : -1
+        currentIndex: root.minute%5 === 0 ? root.minute/5 : -1
     }
 }

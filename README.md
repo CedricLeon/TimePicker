@@ -6,15 +6,15 @@
 
 #### Hour Picker (EU way)
 
-![Screen showing an example of the HourPicker](./docs/README_files/HourPickerEu.png)
+![Screen showing an example of the EuHourPicker](./docs/README_files/HourPickerEu.png)
 
 #### Hour Picker (Am way)
 
-![Screen showing an example of the HourPicker](./docs/README_files/HourPickerAm.png)
+![Screen showing an example of the AmHourPicker](./docs/README_files/HourPickerAm.png)
 
 #### Minute Picker
 
-![Screen showing an example of the HourPicker](./docs/README_files/MinutePicker.png)
+![Screen showing an example of the MinutePicker](./docs/README_files/MinutePicker.png)
 
 ### Build
 
@@ -35,11 +35,21 @@ Allow to pick hour from 0 to 23 (Eu way)
 ````js
 EuCircularHourPicker
 {
-    radius: 150			// default: 100
-    currentHour: 5		// default: 0
+    radius: 150			    // default: 100
+    hour: slider.value		// default: 0
     onAccepted: (hour) => console.log(`hour: ${hour}`)
 }
 ````
+
+**Properties**
+
+* `radius`: (default 100)
+* `hour` : Hour of the component, can be set from outside (default 0) 
+* `labelSize` : Size of text area, distance between am and pm hour circular path (default 32)
+
+**Signal**
+
+* `accepted` : Signal emitted at every move of the HandClock
 
 #### AmCircularHourPicker
 
@@ -48,11 +58,20 @@ Allow to pick hour from 1 to 12 (American way)
 ````js
 AmCircularHourPicker
 {
-    radius: 150			// default: 100
-    currentHour: 5		// default: 0    
+    radius: 150			    // default: 100
+    hour: slider.value		// default: 0    
     onAccepted: (hour) => console.log(`hour: ${hour}`)
 }
 ````
+
+**Properties**
+
+* `radius`: (default 100)
+* `hour` :  Hour of the component, can be set from outside (default 12) 
+
+**Signal**
+
+* `accepted` : Signal emitted at every move of the **HandClock**
 
 #### CircularMinutePicker
 
@@ -61,11 +80,20 @@ Allow to pick minute from 0 to 59
 ````js
 CircularMinutePicker
 {
-    radius: 150			// default: 100
-    currentHour: 28		// default: 0
+    radius: 150			   // default: 100
+    minute: slider.value   // default: 0
     onAccepted: (minute) => console.log(`minute: ${minute}`)
 }
 ````
+
+**Properties**
+
+* `radius`: (default 100)
+* `minute` : Minute of the component, can be set from outside (default 0) 
+
+**Signal**
+
+* `accepted` : Signal emitted at every move of the HandClock
 
 #### CircularPathLabel
 
@@ -81,5 +109,32 @@ CircularPathLabel
 }
 ````
 
+**Properties**
 
+* `radius`: (default 100)
+* `model` : Table of values displayed in the path (default, hours of the day)
+* `numberOfElement` : Number of values display in circle (default 12)
+* `textType` : Text characteristics of elements displayed (default, *Qaterial.Style.TextType.Body1*, can be choose among **Qaterial.Style.TexType** Enum)
+* `currentIndex` : Index of the element "highlighted" (default -1)
+* `labelSize` : Size of text area (default 32)
+
+#### HandClock
+
+Display a handclock
+
+````js
+HandClock
+{
+    radius: 140		    // default 100
+    color: "white"	    // default "transparent"
+    renderDot: false    // default true
+}
+````
+
+**Properties**
+
+* `color` : (default `transparent`)
+* `radius` : (default 100)
+* `labelSize` : Radius of the external "picker" circle (default : 32 x 2^0.5)
+* `renderDot` : Boolean which displayed or not a central circle in the external "picker" circle (default `true`) 
 
