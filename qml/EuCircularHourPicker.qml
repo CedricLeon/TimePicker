@@ -1,4 +1,5 @@
-import QtQuick 2.12
+import QtQml 2.14
+import QtQuick 2.14
 import Qaterial 1.0 as Qaterial
 
 Item
@@ -6,8 +7,15 @@ Item
     id: root
 
     property int radius: 100
-    property int hour: currentHour
-    property int currentHour: 0
+    property int hour: 0
+    property int _currentHour: 0
+    Binding on hour
+    {
+        when: _pickArea.pressed
+        value: root._currentHour
+        //restoreMode: Binding.RestoreBindingOrValue
+    }
+
     property alias labelSize: _circularHour.labelSize
 
     signal accepted(int hour)
@@ -24,7 +32,8 @@ Item
         renderDot: false
         rotation:
         {
-            const modHour = hour%12
+            console.log(`evatuate ${hour}`)
+            const modHour = root.hour%12
             return 360*modHour/12
         }
     }
@@ -38,6 +47,7 @@ Item
 
     MouseArea
     {
+        id: _pickArea
         anchors.fill: parent
         function computeAngle(x, y)
         {
@@ -70,13 +80,13 @@ Item
             }
             else if(finalHour === 0) finalHour = 12
 
-            root.currentHour = finalHour
+            root._currentHour = finalHour
         }
 
         function computeHour(mouse)
         {
             computeAngle(mouse.x/width - 1/2, -(mouse.y/height - 1/2))
-            root.accepted(root.currentHour)
+            root.accepted(root._currentHour)
         }
 
         onPressed:         (mouse) => computeHour(mouse)

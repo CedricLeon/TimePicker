@@ -8,6 +8,12 @@ Item
     property int radius: 100
     property int hour: currentHour
     property int currentHour: 12
+    Binding on hour
+    {
+        when: _pickArea.pressed
+        value: root._currentHour
+        //restoreMode: Binding.RestoreBindingOrValue
+    }
 
     signal accepted(int hour)
 
@@ -37,6 +43,7 @@ Item
 
     MouseArea
     {
+        id: _pickArea
         anchors.fill: parent
         function computeAngle(x, y)
         {

@@ -114,7 +114,7 @@ CircularPathLabel
 * `radius`: (default 100)
 * `model` : Table of values displayed in the path (default, hours of the day)
 * `numberOfElement` : Number of values display in circle (default 12)
-* `textType` : Text characteristics of elements displayed (default, *Qaterial.Style.TextType.Body1*, can be choose among **Qaterial.Style.TexType** Enum)
+* `textType` : Text characteristics of elements displayed (default, *Qaterial.Style.TextType.Body1*, can be choose among **Qaterial.Style.TextType** Enum)
 * `currentIndex` : Index of the element "highlighted" (default -1)
 * `labelSize` : Size of text area (default 32)
 
@@ -137,4 +137,10 @@ HandClock
 * `radius` : (default 100)
 * `labelSize` : Radius of the external "picker" circle (default : 32 x 2^0.5)
 * `renderDot` : Boolean which displayed or not a central circle in the external "picker" circle (default `true`) 
+
+### Notes
+
+Note that there is no security on the hour/minute when you set it by yourselves. So you can set an hour like `25:-12`.
+
+
 
